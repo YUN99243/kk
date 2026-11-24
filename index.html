@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tamura — 个人主页</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg" aria-hidden="true"></div>
+
+  <header class="hero">
+    <p class="brand">Tamura</p>
+    <h1 class="tagline">用代码把想法变成工具</h1>
+    <p class="lede">软件工程师 · 喜欢直接在代码里调试与迭代</p>
+    <div class="cta-group">
+      <a class="cta" href="#calculator">试试计算器</a>
+      <a class="cta cta-ghost" href="#snake">玩贪吃蛇</a>
+    </div>
+  </header>
+
+  <main>
+    <section id="calculator" class="tool-section" aria-labelledby="calc-heading">
+      <h2 id="calc-heading">计算器</h2>
+      <p class="section-note">加减乘除，本地即时运算</p>
+
+      <div class="calculator" role="application" aria-label="简易计算器">
+        <div class="display" aria-live="polite">
+          <span class="expression" id="expression"></span>
+          <span class="result" id="display">0</span>
+        </div>
+
+        <div class="keys">
+          <button type="button" class="key key-fn" data-action="clear">AC</button>
+          <button type="button" class="key key-fn" data-action="sign">±</button>
+          <button type="button" class="key key-fn" data-action="percent">%</button>
+          <button type="button" class="key key-op" data-action="operator" data-value="/">÷</button>
+
+          <button type="button" class="key" data-action="digit" data-value="7">7</button>
+          <button type="button" class="key" data-action="digit" data-value="8">8</button>
+          <button type="button" class="key" data-action="digit" data-value="9">9</button>
+          <button type="button" class="key key-op" data-action="operator" data-value="*">×</button>
+
+          <button type="button" class="key" data-action="digit" data-value="4">4</button>
+          <button type="button" class="key" data-action="digit" data-value="5">5</button>
+          <button type="button" class="key" data-action="digit" data-value="6">6</button>
+          <button type="button" class="key key-op" data-action="operator" data-value="-">−</button>
+
+          <button type="button" class="key" data-action="digit" data-value="1">1</button>
+          <button type="button" class="key" data-action="digit" data-value="2">2</button>
+          <button type="button" class="key" data-action="digit" data-value="3">3</button>
+          <button type="button" class="key key-op" data-action="operator" data-value="+">+</button>
+
+          <button type="button" class="key key-zero" data-action="digit" data-value="0">0</button>
+          <button type="button" class="key" data-action="decimal">.</button>
+          <button type="button" class="key key-eq" data-action="equals">=</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="snake" class="tool-section" aria-labelledby="snake-heading">
+      <h2 id="snake-heading">贪吃蛇</h2>
+      <p class="section-note">方向键或 WASD 控制，吃到食物变长</p>
+
+      <div class="snake-game" role="application" aria-label="贪吃蛇游戏">
+        <div class="snake-hud">
+          <div class="snake-stat">
+            <span class="snake-stat-label">得分</span>
+            <span class="snake-stat-value" id="snake-score">0</span>
+          </div>
+          <div class="snake-stat">
+            <span class="snake-stat-label">最高</span>
+            <span class="snake-stat-value" id="snake-best">0</span>
+          </div>
+        </div>
+
+        <div class="snake-board-wrap">
+          <canvas id="snake-canvas" width="320" height="320" aria-label="游戏画面"></canvas>
+          <div class="snake-overlay" id="snake-overlay">
+            <p class="snake-overlay-title" id="snake-overlay-title">准备好了？</p>
+            <p class="snake-overlay-hint" id="snake-overlay-hint">按空格或点击开始</p>
+          </div>
+        </div>
+
+        <div class="snake-controls">
+          <button type="button" class="snake-btn" id="snake-start">开始</button>
+          <button type="button" class="snake-btn snake-btn-ghost" id="snake-pause" disabled>暂停</button>
+        </div>
+
+        <div class="snake-dpad" aria-label="触控方向键">
+          <button type="button" class="dpad-btn" data-dir="up" aria-label="向上">↑</button>
+          <div class="dpad-mid">
+            <button type="button" class="dpad-btn" data-dir="left" aria-label="向左">←</button>
+            <button type="button" class="dpad-btn" data-dir="down" aria-label="向下">↓</button>
+            <button type="button" class="dpad-btn" data-dir="right" aria-label="向右">→</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Tamura</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
